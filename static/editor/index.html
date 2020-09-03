@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Simple image editor</title>
+    <link rel="shortcut icon" href="src/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="src/css/draweditor.css?v=1">
+
+    <meta property="og:title" content="Draweditor" />
+    <meta property="og:description"
+        content="Draweditor is a simple free online sketching, drawing, image editing tool." />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@mburakerman" />
+    <meta name="twitter:creator" content="@mburakerman" />
+    <meta name="twitter:title" content="Draweditor">
+    <meta name="twitter:description"
+        content="Draweditor is a simple free online sketching, drawing, image editing tool." />
+    <!-- Twitter -->
+
+</head>
+
+<body>
+    <img src="src/img/loader.svg" class="loader">
+
+    <div class="page_wrapper">
+
+
+        <style>
+            .github-corner:hover .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+
+            @keyframes octocat-wave {
+
+                0%,
+                100% {
+                    transform: rotate(0)
+                }
+
+                20%,
+                60% {
+                    transform: rotate(-25deg)
+                }
+
+                40%,
+                80% {
+                    transform: rotate(10deg)
+                }
+            }
+
+            @media (max-width:500px) {
+                .github-corner:hover .octo-arm {
+                    animation: none
+                }
+
+                .github-corner .octo-arm {
+                    animation: octocat-wave 560ms ease-in-out
+                }
+            }
+        </style>
+
+        <div class="container-fluid">
+
+            <header>
+                <h1>
+                    <a>Simple Image Editor</a>
+                </h1>
+                <p>Quickly draw sketches, edit images</p>
+            </header>
+
+            <section class="draweditor-area">
+                <section class="left-column">
+
+                    <div class="wrap-area wrap-drop">
+                        <input type="file" onchange="previewFile()" name="image"
+                            accept="image/jpeg , image/jpg , image/png">
+                        <br>
+                    </div>
+
+                    <div class="wrap-area wrap-image-buttons">
+                        <button id="image-background">
+                            <img class="svg-icon" src="src/img/background.svg"> Make Background Image</button>
+                        <button id="image-on">
+                            <img class="svg-icon" src="src/img/image.svg"> Add Image</button>
+                    </div>
+
+                    <div class="wrap-area wrap-canvas-background-color">
+                        <p>or choose a background color</p>
+                        <input type="text" class="canvas-background-color" data-control="hue">
+                    </div>
+
+                    <div class="wrap-area wrap-text">
+                        <input type="text" id="text" placeholder="Write your text and hit enter" />
+                        <label for="text-color">
+                            Text color:
+                            <input type="text" id="text-color" class="text-color" data-control="hue">
+                        </label>
+                        <select id="text-font">
+                            <option value="Arial">Arial</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Comic Sans Ms">Comic Sans MS</option>
+                        </select>
+                    </div>
+
+                    <div class="wrap-area wrap-modes">
+                        <button id="selection">
+                            <img class="svg-icon" src="src/img/selection.svg"> Selection Mode</button>
+                        <button id="draw">
+                            <img class="svg-icon" src="src/img/draw.svg"> Draw Mode</button>
+                        <div class="wrap-range">
+                            Line width:
+                            <input type="range" id="range" min="1" max="50" value="1">
+                            <input type="text" id="value" value="1">
+                        </div>
+                        <div class="wrap-draw-color">
+                            <label for="draw-color">
+                                Brush color:
+                                <input type="text" id="draw-color" class="draw-color" data-control="hue">
+                            </label>
+                        </div>
+                    </div>
+
+                </section>
+
+                <section class="right-column">
+                    <div class="wrap-canvas">
+                        <canvas id="c" width="500" height="400"></canvas>
+                    </div>
+                    <div class="wrap-area wrap-delete">
+                        <span
+                            data-wenk="To select an object, you have to activate Selection Mode and select the object you want to delete."
+                            data-wenk-pos="bottom" data-wenk-length="medium">
+                            <button id="delete">
+                                <img class="svg-icon" src="src/img/delete.svg"> Delete Selected Object</button>
+                        </span>
+                        <button id="delete-all">
+                            <img class="svg-icon" src="src/img/delete.svg"> Delete All Objects</button>
+                    </div>
+                    <div class="wrap-area wrap-save">
+                        <a id="save" href="javascript:void(0)">
+                            <img class="svg-icon" src="src/img/save.svg"> Save</a>
+                    </div>
+                </section>
+
+            </section>
+
+            <footer>
+
+            </footer>
+        </div>
+
+
+        <div id="about" class="lity-hide" style="background:#fff;">
+            <h2>Draweditor is a simple free online sketching, drawing, image editing tool.</h2>
+            <br>
+            <p>Quickly upload an image and start to edit. You can add images and texts on it and draw on it. Also it's
+                possible
+                to set background color of canvas to draw awesome sketches.</p>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="src/js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="src/js/fabric-1.6.3.min.js"></script>
+    <script type="text/javascript" src="src/js/jquery.ezdz.min.js"></script>
+    <script type="text/javascript" src="src/js/jquery.minicolors-2.1.2.min.js"></script>
+    <script type="text/javascript" src="src/js/lity.min.js"></script>
+    <script type="text/javascript" src="src/js/draweditor.js?v=1"></script>
+</body>
+
+</html>

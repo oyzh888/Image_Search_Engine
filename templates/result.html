@@ -1,0 +1,60 @@
+
+{% extends "template.html" %}
+
+{% block head_intro_block %}
+<section class="ftco-section bg-light ftco-bread">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+          <div class="col-md-9 ftco-animate">
+            <h1 class="mb-3 bread">Your result page</h1>
+            <p>Choose a file first, then click the upload button to search your favorite image.</p>
+            <p>This site is maticulously optimized for <b>mobile devices</b> like iPhone and iPad, you can use your iPhone's camera to upload images!.</p>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block photograhy_block %}
+<div class="row no-gutters">
+                        <div> <h6 style="margin: 10px">Query</h6> </div>
+                    </div>
+    {% if query_path %}
+    <!--Query Image-->
+    <div class="row no-gutters">
+        <div class="col-md-4 ftco-animate">
+            <a href="{{ query_path }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ query_path }});">
+                <div class="overlay"></div>
+                <div class="text text-center">
+                    <h3>Your query</h3>
+                    <h3>{{res_to_html[0]['categories'][0]}}</h3>
+                    <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span> <br>
+                    <span style="color:#bfbcbc">Caption1: {{ res_to_html[0]['captions'][0] }}</span> <br>
+                    <span style="color:#bfbcbc">Caption2: {{ res_to_html[1]['captions'][0] }}</span> <br>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div> <h6 style="margin: 10px">Result</h6> </div>
+    </div>
+    {% endif %}
+    <div class="row no-gutters">
+    <!--Search result-->
+    {% for img_res in res_to_html %}
+        <div class="col-md-4 ftco-animate">
+            <a href="{{ img_res['path'] }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ img_res['path'] }});">
+                <div class="overlay"></div>
+                <div class="text text-center">
+                    <h3>Category: {{img_res['categories'][0]}} {{img_res['categories'][1]}} {{img_res['categories'][2]}}</h3>
+
+                    <span class="tag">Distant:{{ img_res['dist'] }}</span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+

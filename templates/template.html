@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OYZH Image Search Engine V1.0</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+			<h1 id="colorlib-logo" style="transform: scale(0.9);margin-top: -25px; margin-bottom: 35px;"><span class="flaticon-camera"></span>OYZH_Image</a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+
+                    <li>
+                        <form method="POST" class="subscribe-form" enctype="multipart/form-data" onsubmit="return checkForm()">
+                           <div class="form-group">
+                              <!--<input type="text" id="fake-label" class="form-control" placeholder="Choose your query image" style="cursor: pointer; position:fixed; width: auto">-->
+                              <input type="file" name="query_img" id="input-file" class="form-control"  style="opacity: 0.5">
+                              <input type="submit" id="input-file-submit-button" value="Upload" class="mt-2 btn btn-white submit">
+                            </div>
+	                    </form>
+                    </li>
+
+					<!--<li class="colorlib-active"><a href="editor.html">Image Editor</a></li>-->
+					<li ><a href="/">Home</a></li>
+					<li ><a href="editor">Image Editor</a></li>
+					<li ><a href="about">About</a></li>
+					<li ><a href="result">Caption Result</a></li>
+					<li ><a href="result_detection">Detection Result</a></li>
+					<li ><a href="result_segmentation">Seg Result</a></li>
+					<li class="colorlib-active"><a href="img_samples.zip">Download Samples</a></li>
+
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+				<div class="d-flex justify-content-center">
+					<ul class="d-flex align-items-center">
+						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.facebook.com/profile.php?id=100009767554346"><i class="icon-facebook"></i></a></li>
+						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://twitter.com/OYZH888"><i class="icon-twitter"></i></a></li>
+						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://github.com/oyzh888/"><i class="icon-github"></i></a></li>
+						<li class="d-flex align-items-center jusitfy-content-center"><a href="https://www.linkedin.com/in/zhihao-ouyang-46416a129/"><i class="icon-linkedin"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</aside> <!-- END COLORLIB-ASIDE -->
+		<div id="colorlib-main">
+			<!--OYZH-->
+			{% block head_intro_block %}
+            <section class="ftco-section bg-light ftco-bread">
+				<div class="container">
+					<div class="row no-gutters slider-text align-items-center">
+                      <div class="col-md-9 ftco-animate">
+                        <h1 class="mb-3 bread">Welcome to OYZH Image Search Engine</h1>
+                        <p>Choose a file first, then click the upload button to search your favorite image.</p>
+					    <p>This site is maticulously optimized for <b>mobile devices</b> like iPhone and iPad, you can use your iPhone's camera to upload images!.</p>
+					  </div>
+                    </div>
+				</div>
+			</section>
+			{% endblock %}
+
+			<section class="ftco-section-2">
+				<div class="photograhy">
+					{% block photograhy_block %}
+					{% endblock %}
+				</div>
+			</section>
+		{% block footer_block %}
+	    <footer class="ftco-footer ftco-bg-dark ftco-section">
+	      <div class="container px-md-5">
+	        <div class="row mb-5">
+	          <div class="col-md">
+	            <div class="ftco-footer-widget mb-4">
+	            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+	            	<div class="block-23 mb-3">
+		              <ul>
+		                <li><span class="icon icon-map-marker"></span><span class="text">Tsinghua University, Haidian District, Beijing, China</span></li>
+		                <li><a href="tel:13041231913"><span class="icon icon-phone"></span><span class="text">+86 130 4123 1913</span></a></li>
+		                <li><a href="mailto:oyzh18@mails.tsinghua.edu.cn"><span class="icon icon-envelope"></span><span class="text">oyzh18@mails.tsinghua.edu.cn</span></a></li>
+		              </ul>
+		            </div>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="row">
+	          <div class="col-md-12">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="icon-happy-outline" aria-hidden="true"></i> by <a href="http://ouyangzhihao.com" target="_blank">OYZH</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	          </div>
+	        </div>
+	      </div>
+	    </footer>
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
+		{% endblock %}
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+        //input元素
+      var fileInput = document.querySelector('#input-file');
+
+      console.log("start")
+      var previewBtn = document.querySelector('#input-file-submit-button')
+
+	  function checkForm(){
+          var filelist = fileInput.files;
+		  if(filelist.length < 1){
+			alert("Please choose one file!");
+			return false;
+		  }
+          return true
+	  }
+      previewBtn.addEventListener('click',function(e){
+      console.log("addEventListener")
+    })
+  </script>
+  </body>
+</html>

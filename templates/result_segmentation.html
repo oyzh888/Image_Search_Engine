@@ -1,0 +1,83 @@
+
+{% extends "template.html" %}
+
+{% block head_intro_block %}
+<section class="ftco-section bg-light ftco-bread">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+          <div class="col-md-9 ftco-animate">
+            <h1 class="mb-3 bread">Image Segmentation Page</h1>
+            <p>Segmentation result is slow, so please wait at least 10 seconds then check your detection result</p>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block photograhy_block %}
+<div class="row no-gutters">
+                        <div> <h6 style="margin: 10px">Query</h6> </div>
+                    </div>
+    {% if query_path %}
+    <!--Query Image-->
+    <div class="row no-gutters">
+        <div class="col-md-4 ftco-animate">
+            <a href="{{ query_path }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ query_path }});">
+                <div class="overlay"></div>
+                <div class="text text-center">
+                    <h3>Your query</h3>
+                    <span class="tag">{{res_to_html[0]['categories'][0]}}</span> <br>
+                    <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div class="col-md-4 ftco-animate">
+            <div> <h6 style="margin: 10px">Result</h6> </div>
+        </div>
+        <div class="col-md-4 ftco-animate">
+            <div> <h6 style="margin: 10px">Segmentation Mask</h6> </div>
+        </div>
+        <div class="col-md-4 ftco-animate">
+            <div> <h6 style="margin: 10px">Label Meaning</h6> </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="row no-gutters">
+    <!--Search result-->
+
+    <div class="col-md-4 ftco-animate">
+        <a href="{{ segmentaion_output_img_path_html }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ segmentaion_output_img_path_html }});">
+            <div class="overlay"></div>
+            <div class="text text-center">
+                <h3>Category: {{res_to_html[0]['categories'][0]}} {{res_to_html[0]['categories'][1]}} {{res_to_html[0]['categories'][2]}}</h3>
+                <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-4 ftco-animate">
+         <a href="{{ segmentaion_output_mask_path_html }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ segmentaion_output_mask_path_html }});">
+            <div class="overlay"></div>
+            <div class="text text-center">
+                <h3>Category: {{res_to_html[0]['categories'][0]}} {{res_to_html[0]['categories'][1]}} {{res_to_html[0]['categories'][2]}}</h3>
+                <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-4 ftco-animate">
+         <a href="images/seg_label_meaning.jpg" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url('images/seg_label_meaning.jpg');">
+            <div class="overlay"></div>
+            <div class="text text-center">
+                <h3>Label Meaning</h3>
+                <span class="tag">Only some of the labels are pre-determined, however, other colors are random for discrimination between different classes</span>
+            </div>
+        </a>
+    </div>
+
+</div>
+{% endblock %}
+

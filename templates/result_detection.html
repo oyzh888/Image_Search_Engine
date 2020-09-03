@@ -1,0 +1,55 @@
+
+{% extends "template.html" %}
+
+{% block head_intro_block %}
+<section class="ftco-section bg-light ftco-bread">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center">
+          <div class="col-md-9 ftco-animate">
+            <h1 class="mb-3 bread">Image Detection Page</h1>
+            <p>Detection result is slow, so please wait at least 10 seconds then check your detection result</p>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block photograhy_block %}
+<div class="row no-gutters">
+                        <div> <h6 style="margin: 10px">Query</h6> </div>
+                    </div>
+    {% if query_path %}
+    <!--Query Image-->
+    <div class="row no-gutters">
+        <div class="col-md-4 ftco-animate">
+            <a href="{{ query_path }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ query_path }});">
+                <div class="overlay"></div>
+                <div class="text text-center">
+                    <h3>Your query</h3>
+                    <span class="tag">{{res_to_html[0]['categories'][0]}}</span> <br>
+                    <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div> <h6 style="margin: 10px">Result</h6> </div>
+    </div>
+    {% endif %}
+    <div class="row no-gutters">
+    <!--Search result-->
+
+    <div class="col-md-4 ftco-animate">
+        <a href="{{ detection_output_img_path }}" class="photography-entry img image-popup d-flex justify-content-center align-items-center" style="background-image: url({{ detection_output_img_path }});">
+            <div class="overlay"></div>
+            <div class="text text-center">
+                <h3>Category: {{res_to_html[0]['categories'][0]}} {{res_to_html[0]['categories'][1]}} {{res_to_html[0]['categories'][2]}}</h3>
+                <span class="tag">Confidence:{{ res_to_html[0]['probability'] }}</span>
+            </div>
+        </a>
+    </div>
+
+</div>
+{% endblock %}
+
